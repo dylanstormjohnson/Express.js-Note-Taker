@@ -39,9 +39,8 @@ router.delete('/:id', async (req, res) => {
     try {
         var notes = await readNotes()
         //find the particular note with the id, and take it out
-        
-
-        await fs.writeFile(path.join(__dirname, "../../db/db.json"), JSON.stringify(notes));
+        var newNotes = notes.filter(note => note.id != req.params.id)
+        await fs.writeFile(path.join(__dirname, "../../db/db.json"), JSON.stringify(newNotes));
         res.json({message: "You're doing great!"})
     } catch (err) {
         console.log(err);
