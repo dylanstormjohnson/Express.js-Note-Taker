@@ -20,8 +20,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        console.log("Posting to my notes")
-        console.log(req.body)
+        // console.log("Posting to my notes")
+        // console.log(req.body)
         var newNote = {...req.body,
         id: uuidv4()}
         var notes = await readNotes()
